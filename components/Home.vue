@@ -86,7 +86,7 @@
       </div>
     </div>
     <!--search--->
-    <div class="pt-2 relative mx-auto text-gray-600">
+    <div v-show="showSearch" class="pt-2 relative mx-auto text-gray-600">
       <input
         v-model="query"
         class="border-2 border-gray bg-white w-full h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
@@ -114,6 +114,7 @@
           />
         </svg>
       </button>
+      <div class="ml-3 mt-3 text-danger ">Ex.Dragon ball , One Piece ...</div>
     </div>
     <div v-show="showReccom" class="p-24 flex flex-wrap items-center justify-center">
       <div
@@ -231,6 +232,7 @@ export default {
       recom: [],
       manga: [],
       detail: [],
+      showSearch: true,
       showDetail: false,
       showManga: true,
       showReccom: true
@@ -261,6 +263,7 @@ export default {
     MangaClick(index) {
       console.log(this.manga[index])
       this.detail = this.manga[index]
+      this.showSearch = false
       this.showDetail = true
       this.showManga = false
       this.showReccom = false
@@ -268,11 +271,13 @@ export default {
     RecomClick(index) {
       console.log(this.recom[index])
       this.detail = this.recom[index]
+      this.showSearch = false
       this.showDetail = true
       this.showManga = false
       this.showReccom = false
     },
     btBack() {
+      this.showSearch = true
       this.showDetail = false
       this.showManga = true
       this.showReccom = true

@@ -243,7 +243,6 @@ export default {
   async fetch() {
     const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=onepiech&limit=3`)
     this.recom = url.results
-    console.log(this.recom)
   },
   methods: {
     async search(event) {
@@ -252,7 +251,6 @@ export default {
         this.manga = url.results
         this.btMORE = true
         this.showReccom = false
-        console.log(this.manga)
       } else {
         return
       }
@@ -263,7 +261,6 @@ export default {
       this.btMORE = false
     },
     MangaClick(mal_id) {
-      console.log(this.manga[mal_id])
       this.detail = this.manga[mal_id]
       this.showSearch = false
       this.showDetail = true
@@ -272,7 +269,6 @@ export default {
       this.showCover = false
     },
     RecomClick(mal_id) {
-      console.log(this.recom[mal_id])
       this.detail = this.recom[mal_id]
       this.showSearch = false
       this.showDetail = true

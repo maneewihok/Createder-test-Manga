@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
     <!----Slide---->
-    <div class="carousel relative shadow-2xl bg-white mt-6">
+    <div v-show="showCover" class="carousel relative shadow-2xl bg-white mt-6">
       <div class="carousel-inner relative overflow-hidden w-full">
         <!--Slide 1-->
         <input
@@ -15,7 +15,7 @@
         />
         <div class="carousel-item absolute opacity-0" style="height: 70vh">
           <div class="block h-full w-full bg-black text-white text-5xl text-center">
-            <img class="w-full" src="https://i.pinimg.com/originals/01/11/15/011115d60807548cdecc173ae720f131.jpg" />
+            <img class="w-full" src="https://giffiles.alphacoders.com/354/35458.gif" />
           </div>
         </div>
         <label
@@ -88,6 +88,7 @@
     <!--search--->
     <div v-show="showSearch" class="pt-2 relative mx-auto text-gray-600">
       <input
+        @keyup.enter="search($event)"
         v-model="query"
         class="border-2 border-gray bg-white w-full h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
         type="search"
@@ -153,8 +154,8 @@
     </div>
     <div v-show="showManga" class="p-24 flex flex-wrap items-center justify-center mr-20">
       <div
-        v-for="(manga, index) in manga"
-        :key="index"
+        v-for="(manga, mal_id) in manga"
+        :key="mal_id"
         class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-lg"
       >
         <div class="flex justify-end">
@@ -178,7 +179,7 @@
         </div>
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="fix-sizex flex justify-start">
-            <span  @click="MangaClick(index)" class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10">{{ manga.title }}</span>
+            <span  @click="MangaClick(mal_id)" class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10">{{ manga.title }}</span>
           </div>
         </div>
       </div>
@@ -199,7 +200,7 @@
       </div>
     </div>
 
-    <!-- BUY ME A BEER AND HELP SUPPORT OPEN-SOURCE RESOURCES -->
+    <!-- LOGO -->
     <div class="flex items-end justify-end fixed bottom-0 right-0 mb-4 mr-4 z-10">
       <div>
         <a
@@ -232,6 +233,7 @@ export default {
       recom: [],
       manga: [],
       detail: [],
+      showCover: true,
       showSearch: true,
       showDetail: false,
       showManga: true,
@@ -244,7 +246,7 @@ export default {
     console.log(this.recom)
   },
   methods: {
-    async search() {
+    async search(event) {
       if (this.query !== '') {
         const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=${this.query}&limit=5`)
         this.manga = url.results
@@ -260,27 +262,30 @@ export default {
       this.manga = url.results
       this.btMORE = false
     },
-    MangaClick(index) {
-      console.log(this.manga[index])
-      this.detail = this.manga[index]
+    MangaClick(mal_id) {
+      console.log(this.manga[mal_id])
+      this.detail = this.manga[mal_id]
       this.showSearch = false
       this.showDetail = true
       this.showManga = false
       this.showReccom = false
+      this.showCover = false
     },
-    RecomClick(index) {
-      console.log(this.recom[index])
-      this.detail = this.recom[index]
+    RecomClick(mal_id) {
+      console.log(this.recom[mal_id])
+      this.detail = this.recom[mal_id]
       this.showSearch = false
       this.showDetail = true
       this.showManga = false
       this.showReccom = false
+      this.showCover = false
     },
     btBack() {
       this.showSearch = true
       this.showDetail = false
       this.showManga = true
-      this.showReccom = true
+      this.showReccom = false
+      this.showCover = true
     }
   }
 }

@@ -1,9 +1,20 @@
+// State object
 export const state = () => ({
-  title: 'AAA'
+  mal_id: ''
 })
-
+// Getter functions
+export const getters = {}
 export const mutations = {
-  SET_TITLE(state, newVal) {
-    state.title = newVal
+  SET_MAL_ID(state, payload) {
+    state.mal_id = payload
+  }
+}
+// Actions
+export const actions = {
+  fetchData({ commit }, payload) {
+    commit('SET_MAL_ID', payload.mal_id)
+  },
+  setMal_Id({ commit }, payload) {
+    commit('SET_MAL_ID', payload)
   }
 }

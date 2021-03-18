@@ -15,7 +15,7 @@
         />
         <div class="carousel-item absolute opacity-0" style="height: 70vh">
           <div class="block h-full w-full bg-black text-white text-5xl text-center">
-            <img class="w-full" src="https://giffiles.alphacoders.com/354/35458.gif" />
+            <img src="https://www.themebeta.com/files/windows/images/201902/22/7b60f4a9a07c34ff596572e41c751a27.jpeg" />
           </div>
         </div>
         <label
@@ -29,7 +29,7 @@
           >›</label
         >
 
-        <!--Slide 2-->
+        <!--Slide 1-->
         <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="" />
         <div class="carousel-item absolute opacity-0" style="height: 70vh">
           <div class="block h-full w-full bg-orange text-white text-5xl text-center">
@@ -47,7 +47,7 @@
           >›</label
         >
 
-        <!--Slide 3-->
+        <!--Slide 2-->
         <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="" />
         <div class="carousel-item absolute opacity-0" style="height: 70vh">
           <div class="block h-full w-full bg-primary-blue text-white text-5xl text-center">
@@ -115,7 +115,7 @@
           />
         </svg>
       </button>
-      <div class="ml-3 mt-3 text-danger ">Ex.Dragon ball , One Piece ...</div>
+      <div class="ml-3 mt-3 text-danger">Ex.Dragon ball , One Piece ...</div>
     </div>
     <div v-show="showReccom" class="p-24 flex flex-wrap items-center justify-center">
       <div
@@ -144,13 +144,17 @@
         </div>
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="fix-sizex flex justify-start">
-            <span @click="RecomClick(index)" class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10">{{ recom.title }}</span>
+            <NuxtLink to="/detail"
+              ><span
+                @click="RecomClick(index)"
+                class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
+                >{{ recom.title }}</span
+              ></NuxtLink
+            >
           </div>
         </div>
       </div>
-      <div class="bg-danger text-xl text-white w-20 text-center rounded">
-        แนะนำ
-      </div>
+      <div class="bg-danger text-xl text-white w-20 text-center rounded">แนะนำ</div>
     </div>
     <div v-show="showManga" class="p-24 flex flex-wrap items-center justify-center mr-20">
       <div
@@ -179,22 +183,13 @@
         </div>
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="fix-sizex flex justify-start">
-            <span  @click="MangaClick(mal_id)" class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10">{{ manga.title }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-----Detail---->
-    <div v-show="showDetail" class="mb-40 w-full flex mt-40">
-      <div class="w-full flex md:flex shadow-lg mx-6 md:mx-auto max-w-lg md:max-w-2xl h-64">
-        <img class="h-full w-full md:w-1/3 object-cover rounded-lg rounded-r-none pb-5/6" :src="detail.image_url" />
-        <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
-          <div class="items-center">
-            <h2 class="text-xl font-semibold mr-auto">{{ detail.title }}</h2>
-          </div>
-          <p class="justify-end tracking-tighter mt-4">{{ detail.synopsis }}</p>
-          <div class="flex items-center justify-end mt-4 top-auto">
-            <button @click="btBack" class="bg-black text-white px-2 py-2 rounded-md">BACK</button>
+            <NuxtLink to="/detail">
+              <span
+                @click="MangaClick(mal_id)"
+                class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
+                >{{ manga.title }}</span
+              >
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -235,7 +230,6 @@ export default {
       detail: [],
       showCover: true,
       showSearch: true,
-      showDetail: false,
       showManga: true,
       showReccom: true
     }
@@ -261,27 +255,14 @@ export default {
       this.btMORE = false
     },
     MangaClick(mal_id) {
-      this.detail = this.manga[mal_id]
-      this.showSearch = false
-      this.showDetail = true
-      this.showManga = false
-      this.showReccom = false
-      this.showCover = false
+      localStorage.setItem('image_url', this.manga[mal_id].image_url)
+      localStorage.setItem('title', this.manga[mal_id].title)
+      localStorage.setItem('synopsis', this.manga[mal_id].synopsis)
     },
     RecomClick(mal_id) {
-      this.detail = this.recom[mal_id]
-      this.showSearch = false
-      this.showDetail = true
-      this.showManga = false
-      this.showReccom = false
-      this.showCover = false
-    },
-    btBack() {
-      this.showSearch = true
-      this.showDetail = false
-      this.showManga = true
-      this.showReccom = false
-      this.showCover = true
+      localStorage.setItem('image_url', this.recom[mal_id].image_url)
+      localStorage.setItem('title', this.recom[mal_id].title)
+      localStorage.setItem('synopsis', this.recom[mal_id].synopsis)
     }
   }
 }

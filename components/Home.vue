@@ -237,16 +237,21 @@ export default {
   async fetch() {
     const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=onepiech&limit=3`)
     this.recom = url.results
+    this.search()
   },
   methods: {
     async search(event) {
       if (this.query !== '') {
         const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=${this.query}&limit=5`)
+        localStorage.setItem('query', this.query)
         this.manga = url.results
         this.btMORE = true
         this.showReccom = false
       } else {
-        return
+        const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=onepiech&limit=3`)
+        this.manga = url.results
+        this.btMORE = false
+        this.showReccom = false
       }
     },
     async more() {

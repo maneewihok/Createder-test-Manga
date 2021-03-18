@@ -144,12 +144,12 @@
         </div>
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="fix-sizex flex justify-start">
-            <NuxtLink to="/detail"
-              ><span
+            <router-link to="/detail" tag="span">
+              <span
                 @click="RecomClick(index)"
                 class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
                 >{{ recom.title }}</span
-              ></NuxtLink
+              ></router-link 
             >
           </div>
         </div>
@@ -183,13 +183,13 @@
         </div>
         <div class="relative text-white px-6 pb-6 mt-6">
           <div class="fix-sizex flex justify-start">
-            <NuxtLink to="/detail">
+            <router-link to="/detail" tag="span">
               <span
                 @click="MangaClick(mal_id)"
                 class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
                 >{{ manga.title }}</span
               >
-            </NuxtLink>
+            </router-link>
           </div>
         </div>
       </div>
@@ -242,7 +242,7 @@ export default {
   methods: {
     async search(event) {
       if (this.query !== '') {
-        const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=${this.query}&limit=5`)
+        const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=${this.query}&limit=6`)
         localStorage.setItem('query', this.query)
         this.manga = url.results
         this.btMORE = true

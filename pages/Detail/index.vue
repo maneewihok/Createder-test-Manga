@@ -8,9 +8,7 @@
         </div>
         <p class="justify-end tracking-tighter mt-4">{{ synopsis }}</p>
         <div class="flex items-center justify-end mt-4 top-auto">
-          <NuxtLink to="/">
-            <button class="bg-black text-white px-2 py-2 rounded-md">BACK</button>
-          </NuxtLink>
+          <button @click="$router.push('/')" class="bg-black text-white px-2 py-2 rounded-md">BACK</button>
         </div>
       </div>
     </div>

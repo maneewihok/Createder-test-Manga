@@ -186,7 +186,7 @@
       <div>
         <a
           title="Buy me a beer"
-          href="https://www.buymeacoffee.com/scottwindon"
+          href="http://localhost:3000/"
           target="_blank"
           class="block w-16 h-16 rounded-full transition-all shadow hover:shadow-lg transform hover:scale-110 hover:rotate-12"
         >
@@ -217,14 +217,12 @@ export default {
       showCover: true,
       showSearch: true,
       showManga: true,
-      showReccom: true,
-      text_color: 'danger'
+      showReccom: true
     }
   },
   async fetch() {
     const url = await this.$http.$get(`https://api.jikan.moe/v3/search/anime?q=onepiech&limit=3`)
     this.recom = url.results
-    this.search()
   },
   methods: {
     async search(event) {

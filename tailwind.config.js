@@ -13,7 +13,8 @@ module.exports = {
         gray: '#CECECE',
         disabled: '#BDBDBD',
         white: '#ffffff',
-        orange: '#fca21b'
+        orange: '#fca21b',
+        yellow: '#FFC300'
       },
       fontSize: {
         '0': '0rem',

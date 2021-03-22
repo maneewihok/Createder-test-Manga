@@ -135,15 +135,24 @@
         <div class="fix-size relative pt-10 px-20 flex items-center justify-center">
           <img class="relative w-40" :src="recom.image_url" />
         </div>
-        <div class="relative text-white px-6 pb-6 mt-6">
-          <div class="fix-sizex flex justify-start">
+        <div class="flex justify-start relative text-white px-6 pb-6">
+          <div class="fix-sizex flex">
             <router-link to="/detail" tag="span">
               <span
                 @click="RecomClick(index)"
                 class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
-                >{{ recom.title }}</span
-              ></router-link
-            >
+              >
+                {{ recom.title }}
+              </span>
+              <div class="flex justify-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow" fill="currentColor">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <span class="cursor-default">{{ recom.score }}</span>
+              </div>
+            </router-link>
           </div>
         </div>
       </div>
@@ -167,7 +176,7 @@
         <div class="fix-size relative pt-10 px-20 flex items-center justify-center">
           <img class="relative w-40" :src="manga.image_url" />
         </div>
-        <div class="relative text-white px-6 pb-6 mt-6">
+        <div class="relative text-white px-6 pb-6">
           <div class="fix-sizex flex justify-start">
             <router-link to="/detail" tag="span">
               <span
@@ -175,6 +184,14 @@
                 class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
                 >{{ manga.title }}</span
               >
+              <div class="flex justify-start">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow" fill="currentColor">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+                <span class="cursor-default">{{ manga.score }}</span>
+              </div>
             </router-link>
           </div>
         </div>
@@ -248,11 +265,13 @@ export default {
       localStorage.setItem('image_url', this.manga[mal_id].image_url)
       localStorage.setItem('title', this.manga[mal_id].title)
       localStorage.setItem('synopsis', this.manga[mal_id].synopsis)
+      localStorage.setItem('url', this.manga[mal_id].url)
     },
     RecomClick(mal_id) {
       localStorage.setItem('image_url', this.recom[mal_id].image_url)
       localStorage.setItem('title', this.recom[mal_id].title)
       localStorage.setItem('synopsis', this.recom[mal_id].synopsis)
+      localStorage.setItem('url', this.recom[mal_id].url)
     }
   }
 }
@@ -263,7 +282,7 @@ export default {
   width: 100%;
 }
 .fix-sizex {
-  height: 120px;
+  height: 150px;
   width: 100%;
 }
 .w-input {

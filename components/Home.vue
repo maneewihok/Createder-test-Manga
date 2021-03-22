@@ -123,13 +123,6 @@
         :key="index"
         class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-lg"
       >
-        <div class="flex justify-end">
-          <svg class="h-6 w-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
-            ></path>
-          </svg>
-        </div>
         <svg
           class="absolute bottom-0 left-0 mb-8"
           viewBox="0 0 375 283"
@@ -149,7 +142,7 @@
                 @click="RecomClick(index)"
                 class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
                 >{{ recom.title }}</span
-              ></router-link 
+              ></router-link
             >
           </div>
         </div>
@@ -162,13 +155,6 @@
         :key="mal_id"
         class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-lg"
       >
-        <div class="flex justify-end">
-          <svg class="h-6 w-6 text-white fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path
-              d="M12.76 3.76a6 6 0 0 1 8.48 8.48l-8.53 8.54a1 1 0 0 1-1.42 0l-8.53-8.54a6 6 0 0 1 8.48-8.48l.76.75.76-.75zm7.07 7.07a4 4 0 1 0-5.66-5.66l-1.46 1.47a1 1 0 0 1-1.42 0L9.83 5.17a4 4 0 1 0-5.66 5.66L12 18.66l7.83-7.83z"
-            ></path>
-          </svg>
-        </div>
         <svg
           class="absolute bottom-0 left-0 mb-8"
           viewBox="0 0 375 283"
@@ -231,7 +217,8 @@ export default {
       showCover: true,
       showSearch: true,
       showManga: true,
-      showReccom: true
+      showReccom: true,
+      text_color: 'danger'
     }
   },
   async fetch() {
@@ -274,7 +261,7 @@ export default {
 </script>
 <style scoped>
 .fix-size {
-  height: 200px;
+  height: 250px;
   width: 100%;
 }
 .fix-sizex {

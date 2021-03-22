@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white">
+  <div class="manga">
     <!----Slide---->
     <div v-show="showCover" class="carousel relative shadow-2xl bg-white mt-6">
       <div class="carousel-inner relative overflow-hidden w-full">
@@ -277,6 +277,13 @@ export default {
 }
 </script>
 <style scoped>
+.manga {
+  min-height: 60vh;
+  background: url('~assets/mangacover.jpg') no-repeat center / cover;
+  @screen md {
+    min-height: 70vh;
+  }
+}
 .fix-size {
   height: 250px;
   width: 100%;

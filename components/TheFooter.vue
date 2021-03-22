@@ -21,7 +21,7 @@
       <div
         class="flex justify-center pb-5 px-3 m-auto pt-5 border-t border-gray text-white text-sm flex-col md:flex-row max-w-6xl"
       >
-        <div class="mt-2">Tanakit Maneewihok © Copyright {{ year }}. All Rights Reserved.</div>
+        <div class="mt-2">Tanakit Maneewihok - Createder Test</div>
       </div>
     </div>
   </footer>
@@ -30,9 +30,7 @@
 <script>
 export default {
   data() {
-    return {
-      year: new Date().getFullYear()
-    }
+    return {}
   }
 }
 </script>

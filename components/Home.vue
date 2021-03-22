@@ -197,8 +197,8 @@
         </a>
       </div>
     </div>
-    <div v-show="btMORE" class="flex items-center justify-end mt-4 top-auto">
-      <button @click="more" class="bg-gray px-4 py-2 rounded mr-auto hover:underline">MORE..</button>
+    <div v-show="btMORE" class="flex justify-center mr-20">
+      <button @click="more" class="bg-gray px-4 py-2 rounded hover:underline">MORE..</button>
     </div>
   </div>
 </template>

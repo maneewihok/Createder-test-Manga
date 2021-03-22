@@ -158,7 +158,7 @@
       </div>
       <div class="bg-danger text-xl text-white w-20 text-center rounded">แนะนำ</div>
     </div>
-    <div v-show="showManga" class="p-24 flex flex-wrap items-center justify-center mr-20">
+    <div v-show="showManga" class="p-24 flex flex-wrap items-center justify-center">
       <div
         v-for="(manga, mal_id) in manga"
         :key="mal_id"
@@ -214,7 +214,7 @@
         </a>
       </div>
     </div>
-    <div v-show="btMORE" class="flex justify-center mr-20">
+    <div v-show="btMORE" class="flex justify-center">
       <button @click="more" class="bg-gray px-4 py-2 rounded hover:underline">MORE..</button>
     </div>
   </div>

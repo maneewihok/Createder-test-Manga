@@ -15,7 +15,7 @@
         />
         <div class="carousel-item absolute opacity-0" style="height: 70vh">
           <div class="block h-full w-full bg-black text-white text-5xl text-center">
-            <img src="https://www.themebeta.com/files/windows/images/201902/22/7b60f4a9a07c34ff596572e41c751a27.jpeg" />
+            <img src="https://images5.alphacoders.com/487/thumb-1920-487888.jpg" />
           </div>
         </div>
         <label
@@ -121,7 +121,7 @@
       <div
         v-for="(recom, index) in recom"
         :key="index"
-        class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-lg"
+        class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-xl rounded-xl"
       >
         <svg
           class="absolute bottom-0 left-0 mb-8"
@@ -153,7 +153,7 @@
       <div
         v-for="(manga, mal_id) in manga"
         :key="mal_id"
-        class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-lg"
+        class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-xl rounded-xl"
       >
         <svg
           class="absolute bottom-0 left-0 mb-8"

@@ -46,7 +46,4 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
-  env: {
-    apiBaseUrl: 'https://jsonplaceholder.typicode.com'  
-  },
 }

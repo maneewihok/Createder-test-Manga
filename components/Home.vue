@@ -124,49 +124,58 @@
     </div>
     <div class="flex justify-end ml-3 mt-3 mr-3 text-danger">Ex.Dragon ball , One Piece ...</div>
     <client-only>
-      <div>แนะนำ</div>
       <sequential-entrance delay="1000">
-        <div v-show="showReccom" class="p-24 flex flex-wrap items-center justify-center">
-          <div
-            v-for="(recom, index) in recom"
-            :key="index"
-            class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-xl rounded-xl"
-          >
-            <svg
-              class="absolute bottom-0 left-0 mb-8"
-              viewBox="0 0 375 283"
-              fill="none"
-              style="transform: scale(1.5); opacity: 0.1"
+        <div v-show="showReccom">
+          <div class="flex flex-wrap items-center justify-center">
+            <div
+              v-for="(recom, index) in recom"
+              :key="index"
+              class="bg-black flex-shrink-0 m-6 relative overflow-hiddenrounded-lg max-w-xs shadow-xl rounded-xl"
             >
-              <rect
-                x="159.52"
-                y="175"
-                width="152"
-                height="152"
-                rx="8"
-                transform="rotate(-45 159.52 175)"
-                fill="white"
-              />
-              <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
-            </svg>
-            <div class="fix-size relative pt-10 px-20 flex items-center justify-center">
-              <img class="relative w-40" :src="recom.image_url" />
-            </div>
-            <div class="flex justify-start relative text-white px-6 pb-6">
-              <div class="fix-sizex">
-                <span
-                  @click="RecomClick(index), $router.push('/detail')"
-                  class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
-                >
-                  {{ recom.title }}
-                </span>
-                <div class="flex">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow" fill="currentColor">
-                    <path
-                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                    />
-                  </svg>
-                  <span class="cursor-default">{{ recom.score }}</span>
+              <div class="flex justify-end rounded-b rounded-xl bg-danger">
+                <span class="text-white font-bold">Recomended</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow" fill="currentColor">
+                  <path
+                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                  />
+                </svg>
+              </div>
+              <svg
+                class="absolute bottom-0 left-0 mb-8"
+                viewBox="0 0 375 283"
+                fill="none"
+                style="transform: scale(1.5); opacity: 0.1"
+              >
+                <rect
+                  x="159.52"
+                  y="175"
+                  width="152"
+                  height="152"
+                  rx="8"
+                  transform="rotate(-45 159.52 175)"
+                  fill="white"
+                />
+                <rect y="107.48" width="152" height="152" rx="8" transform="rotate(-45 0 107.48)" fill="white" />
+              </svg>
+              <div class="fix-size relative pt-10 px-20 flex items-center justify-center">
+                <img class="relative w-40" :src="recom.image_url" />
+              </div>
+              <div class="flex justify-start relative text-white px-6 pb-6">
+                <div class="fix-sizex">
+                  <span
+                    @click="RecomClick(index), $router.push('/detail')"
+                    class="cursor-pointer hover:text-orange block font-semibold text-xl mt-10"
+                  >
+                    {{ recom.title }}
+                  </span>
+                  <div class="flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-yellow" fill="currentColor">
+                      <path
+                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    </svg>
+                    <span class="cursor-default">{{ recom.score }}</span>
+                  </div>
                 </div>
               </div>
             </div>

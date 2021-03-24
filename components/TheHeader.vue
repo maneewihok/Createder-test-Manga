@@ -5,7 +5,7 @@
         @click="$router.push('/')"
         class="cursor-pointer transform hover:scale-125 logo font-bold text-xl text-black text-white"
       >
-        MANGA
+        MANGA STORE
       </div>
     </div>
   </div>

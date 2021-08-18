@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-7xl mx-auto px-4">
+  <div class="mt-2 max-w-7xl mx-auto px-4">
     <Home />
   </div>
 </template>
